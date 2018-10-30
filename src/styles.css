@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+h5 {
+    color: blue;
+}
+
+h5:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: darkblue;
+}
+
+li {
+    color: blue;
+}
+
+li:hover {
+    text-decoration: underline;
+    cursor: pointer;
+    color: darkblue;
+}
+
+.negative {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.positive {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
