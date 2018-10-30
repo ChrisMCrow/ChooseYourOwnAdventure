@@ -1,0 +1,10 @@
+<h2>{{title}}</h2>
+
+<h3>Who Are You?</h3>
+<p>The future is here and it's like nothing we thought. The United States, like many countries across the world, has fallen into disarray and many secessionist movements have succeeded. Many people do the best they can to succeed and find work in a world that's becoming increasingly more complicated. You are one such person. Your hometown no longer can support you and you set out to find a new life somewhere in these former United States.</p>
+
+<p>So stranger, what's your story?</p>
+<div *ngFor="let player of players | async" (click)="playerSelected(player)">
+  <h5>{{player.name}}</h5>
+  <p>{{player.description}}</p>
+</div> 

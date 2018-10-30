@@ -1,18 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Player } from './player.model';
+import { PlayerService } from './player.service';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [PlayerService]
 })
-export class AppComponent {
-
-  constructor(private router: Router) { }
+export class AppComponent implements OnInit {
   title = 'app';
 
-  selectCharacter(clickedCharacter){
-    this.router.navigate(['players', clickedCharacter.$keys]);
+  players: FirebaseListObservable<any[]>;
+  
+  ngOnInit() {
+    this.players = this.playerService.getPlayers();
+  }
+  
+  
+  //code not working because we don't know how to get data from the intro component
+  public newPlayer: Player;
+  constructor(private router: Router, private playerService: PlayerService) { }
+  selectCharacter(player) {
+    this.newPlayer = new Player(player.age, player.description, player.gender, player.name, player.points);
   }
 }
